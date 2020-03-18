@@ -45,19 +45,7 @@ public class RoomAdapter extends ArrayAdapter<Room> {
         TextView addressAndFloorTxt = row.findViewById(R.id.addressAndFloorTxt);
         TextView descTxt = row.findViewById(R.id.descTxt);
 
-//        가격 설정 =>setText에는 int값을 넣지 말자!
-//        1만이상? 억단위, 아니면? 숫자만 , 찍어서
-        if(data.getPrice()>=10000){
-//            ?억 ?천만 로 가공
-            int uk = data.getPrice() / 10000;
-            int thousand = data.getPrice() % 10000;
-
-            priceTxt.setText(String.format("%d억 %,d",uk,thousand));
-
-        }
-        else{
-            priceTxt.setText(String.format("%,d", data.getPrice()));
-        }
+        priceTxt.setText(data.getFormattedPrice());
 
 //        주소 / 층수 결합해서
 
