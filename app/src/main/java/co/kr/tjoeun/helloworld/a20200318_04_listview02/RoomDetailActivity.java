@@ -33,6 +33,8 @@ public class RoomDetailActivity extends BaseActivity {
         Room room = (Room)getIntent().getSerializableExtra("room");
 
         binding.priceTxt.setText(room.getFormattedPrice());
+        binding.addressTxt.setText(room.getAddress());
+        binding.floorTxt.setText(room.getFloorToString());
         binding.descTxt.setText(room.getDescription());
 
 

@@ -16,6 +16,24 @@ public class Room implements Serializable {
         this.description = description;
     }
 
+    public String getFloorToString() {
+
+        //        주소 / 층수 결합해서
+
+        String floorStr = "";
+//        층>0 층 ==0 그외 (층<0)
+        if (this.floor > 0) {
+            floorStr = String.format("%d층", this.floor);
+        } else if (this.floor == 0) {
+//            0=> 반지하
+            floorStr = "반지하";
+        } else {
+            floorStr = String.format("지하 %d층", this.floor * -1);
+        }
+
+    return floorStr;
+    }
+
     public String getFormattedPrice (){
 //        상황에따라 표기방법에따라 나눠 리턴해줌
         if(this.price > 10000){

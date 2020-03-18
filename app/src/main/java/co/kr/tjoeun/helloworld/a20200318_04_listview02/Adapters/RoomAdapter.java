@@ -47,23 +47,9 @@ public class RoomAdapter extends ArrayAdapter<Room> {
 
         priceTxt.setText(data.getFormattedPrice());
 
-//        주소 / 층수 결합해서
-
-        String floorStr = "";
-//        층>0 층 ==0 그외 (층<0)
-        if(data.getFloor()>0){
-            floorStr = String.format("%d층", data.getFloor());
-        }
-        else if(data.getFloor()==0) {
-//            0=> 반지하
-            floorStr = "반지하";
-        }
-        else{
-            floorStr = String.format("지하 %d층", data.getFloor()*-1);
-        }
 
 
-        addressAndFloorTxt.setText(String.format("%s,%s", data.getAddress(),floorStr));
+        addressAndFloorTxt.setText(String.format("%s,%s", data.getAddress(), data.getFloorToString()));
 
 //        설명은 들어온 그대로 출력
 
